@@ -7,7 +7,7 @@
 		"build": "tsc",
 		"start": "node ./build/src/index.js",
 		"dev": "nodemon ./src/index.ts",
-		"prettier": "prettier --check \"**/*\""
+		"prettier": "prettier --check \"**/*\" --write ."
 	},
 	"repository": {
 		"type": "git",
