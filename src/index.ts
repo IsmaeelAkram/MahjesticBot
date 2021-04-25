@@ -10,7 +10,7 @@ let auth: AuthObject = {
 	clientId: config.clientId,
 };
 
-let bot = new Bot(auth, ['mahjestic']);
+export let bot = new Bot(auth, ['mahjestic']);
 bot.start().catch((err) => {
 	log.danger('Error starting bot: ' + err);
 });
