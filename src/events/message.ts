@@ -1,5 +1,8 @@
 import * as log from '../log';
 import tmi from 'tmi.js';
+import { bot } from '../index';
+
+import Ping from '../commands/ping';
 
 export default function eventMessage(
 	channel: string,
@@ -10,4 +13,8 @@ export default function eventMessage(
 		return;
 	}
 	log.good(`${userstate['display-name']}: ${message}`);
+
+	Ping.handler(bot.client, channel, userstate, message, []).catch((err) => {
+		log.danger(err);
+	});
 }
