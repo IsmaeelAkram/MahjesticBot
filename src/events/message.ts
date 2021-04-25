@@ -6,5 +6,8 @@ export default function eventMessage(
 	userstate: tmi.Userstate,
 	message: string
 ): void {
+	if (!message.startsWith('!')) {
+		return;
+	}
 	log.good(`${userstate['display-name']}: ${message}`);
 }
