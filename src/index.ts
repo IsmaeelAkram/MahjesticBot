@@ -9,5 +9,8 @@ let auth: AuthObject = {
 	OAuthToken: config.OAuthToken,
 	clientId: config.clientId,
 };
+
 let bot = new Bot(auth, ['mahjestic']);
-bot.start();
+bot.start().catch((err) => {
+	log.danger('Error starting bot: ' + err);
+});
