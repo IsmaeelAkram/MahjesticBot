@@ -1,5 +1,5 @@
-export interface AuthObject {
-	Username: string;
+export default interface AuthObject {
+	username: string;
 	clientId: string;
 	OAuthToken: string;
 }
