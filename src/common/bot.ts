@@ -1,7 +1,11 @@
+import tmi from 'tmi.js';
+
+import eventReady from '../events/ready';
+import eventMessage from '../events/message';
+import eventDisconnected from '../events/disconnected';
+
 import AuthObject from './auth';
 import * as log from '../log';
-
-import tmi from 'tmi.js';
 
 export default class Bot {
 	public readonly auth: AuthObject;
@@ -22,9 +26,9 @@ export default class Bot {
 	}
 
 	async registerEvents(): Promise<void> {
-		await this.client.on('join', (channel: string, username: string) => {
-			log.good(`Joined channel '${channel}'`);
-		});
+		await this.client.on('join', eventReady);
+		await this.client.on('message', eventMessage);
+		await this.client.on('disconnected', eventDisconnected);
 	}
 
 	async start(): Promise<void> {
