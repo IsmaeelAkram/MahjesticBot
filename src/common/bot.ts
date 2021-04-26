@@ -6,6 +6,7 @@ import eventMessage from '../events/message';
 import eventDisconnected from '../events/disconnected';
 
 import ping from '../commands/ping';
+import debuginfo from '../commands/debuginfo';
 
 import AuthObject from './auth';
 import * as log from '../log';
@@ -13,6 +14,7 @@ import * as log from '../log';
 export default class Bot {
 	public readonly auth: AuthObject;
 	public client: tmi.Client;
+	public admins: string[];
 	public channels: string[];
 	public commandsList: Command[];
 
@@ -27,6 +29,7 @@ export default class Bot {
 			},
 			channels,
 		});
+		this.admins = ['mahjestic'];
 		this.commandsList = [];
 	}
 
@@ -37,6 +40,7 @@ export default class Bot {
 
 	registerCommands(): void {
 		this.registerCommand(ping);
+		this.registerCommand(debuginfo);
 	}
 
 	getCommand(cmdName: string): Command {

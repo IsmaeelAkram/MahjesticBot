@@ -1,11 +1,12 @@
 import tmi from 'tmi.js';
+import Bot from './bot';
 
 export default interface Command {
 	name: string;
 	description: string;
 	aliases: string[];
 	handler: (
-		client: tmi.Client,
+		bot: Bot,
 		channel: string,
 		userstate: tmi.Userstate,
 		message: string,

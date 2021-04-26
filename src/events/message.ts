@@ -19,7 +19,7 @@ export default function eventMessage(
 
 	let command = bot.getCommand(cmdName);
 	if (command != null) {
-		command.handler(bot.client, channel, userstate, message, args).catch((err) => {
+		command.handler(bot, channel, userstate, message, args).catch((err) => {
 			log.danger(`Error running command '${command.name}': ${err}`);
 		});
 	} else {

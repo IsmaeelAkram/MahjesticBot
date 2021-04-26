@@ -10,13 +10,15 @@ async function handler(
 	message: string,
 	args: string[]
 ): Promise<void> {
-	await bot.client.say(channel, `${userstate['display-name']} Pong!`);
+	if (!bot.admins.includes(userstate.username)) return;
+
+	await bot.client.whisper(userstate.username, 'Hey cutie pie');
 }
 
 const command: Command = {
-	name: 'ping',
-	description: 'Bot status check',
-	aliases: ['!p'],
+	name: 'debuginfo',
+	description: 'Get info about the currently running instance',
+	aliases: [],
 	handler: handler,
 };
 
