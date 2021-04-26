@@ -15,7 +15,7 @@ async function commandPing(
 const ping: Command = {
 	name: 'ping',
 	description: 'Bot status check',
-	aliases: [],
+	aliases: ['!p'],
 	handler: commandPing,
 };
 
