@@ -5,9 +5,10 @@ import Bot from './common/bot';
 import AuthObject from './common/auth';
 let auth: AuthObject = {
 	username: process.env.username || '',
-	OAuthToken: process.env.OAuthToken || '',
-	clientId: process.env.clientId || '',
+	OAuthToken: process.env.oauth_token || '',
+	clientId: process.env.client_id || '',
 };
+console.log(auth);
 
 export let bot = new Bot(auth, ['mahjestic']);
 bot.start().catch((err) => {
