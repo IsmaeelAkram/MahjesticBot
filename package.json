@@ -5,6 +5,7 @@
 	"main": "src/index.ts",
 	"scripts": {
 		"build": "tsc --project tsconfig.json",
+		"postinstall": "npm run build",
 		"start": "node dist/src/index.js",
 		"dev": "nodemon .",
 		"prettier": "prettier --check \"src/**/*\" --write ."
@@ -25,13 +26,13 @@
 		"@types/node": "^14.14.41",
 		"@types/tmi.js": "^1.7.1",
 		"nodemon": "^2.0.7",
-		"prettier": "^2.2.1"
+		"prettier": "^2.2.1",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.2.4"
 	},
 	"dependencies": {
 		"chalk": "^4.1.1",
 		"dotenv": "^8.2.0",
-		"tmi.js": "^1.8.3",
-		"ts-node": "^9.1.1",
-		"typescript": "^4.2.4"
+		"tmi.js": "^1.8.3"
 	}
 }
