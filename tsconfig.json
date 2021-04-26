@@ -7,7 +7,8 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"outDir": "dist",
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"strictNullChecks": false
 	},
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"display": "Recommended",
