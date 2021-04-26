@@ -13,7 +13,3 @@ export let bot = new Bot(auth, ['mahjestic']);
 bot.start().catch((err) => {
 	log.danger('Error starting bot: ' + err);
 });
-
-app.get('/', (req: express.Request, res: express.Response): void => {
-	res.send('Hey');
-});
