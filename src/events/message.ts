@@ -14,7 +14,15 @@ export default function eventMessage(
 	}
 	log.good(`${userstate['display-name']}: ${message}`);
 
-	Ping.handler(bot.client, channel, userstate, message, []).catch((err) => {
-		log.danger(err);
-	});
+	let args = message.trim().split(' ');
+	let cmdName = args[0].replace('!', '');
+
+	let command = bot.getCommand(cmdName);
+	if (command != null) {
+		command.handler(bot.client, channel, userstate, message, args).catch((err) => {
+			log.danger(`Error running command '${command.name}': ${err}`);
+		});
+	} else {
+		log.danger(`Command '${cmdName}' not found`);
+	}
 }
