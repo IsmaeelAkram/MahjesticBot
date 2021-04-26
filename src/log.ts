@@ -8,17 +8,17 @@ export function good(x: string): string {
 export function danger(x: string): string {
 	const current_time = strftime('%H:%M:%S');
 	console.log(`[👍][${current_time}] ${chalk.red(x)}`);
-	return `[👍][${current_time}] ${chalk.red(x)}`;
+	return `[👎][${current_time}] ${chalk.red(x)}`;
 }
 export function warning(x: string): string {
 	const current_time = strftime('%H:%M:%S');
 	console.log(`[👍][${current_time}] ${chalk.yellow(x)}`);
-	return `[👍][${current_time}] ${chalk.yellow(x)}`;
+	return `[📄][${current_time}] ${chalk.yellow(x)}`;
 }
 export function info(x: string): string {
 	const current_time = strftime('%H:%M:%S');
 	console.log(`[👍][${current_time}] ${chalk.blue(x)}`);
-	return `[👍][${current_time}] ${chalk.blue(x)}`;
+	return `[📣][${current_time}] ${chalk.blue(x)}`;
 }
 
 function strftime(sFormat: string) {
