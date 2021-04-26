@@ -5,7 +5,7 @@
 	"main": "src/index.js",
 	"scripts": {
 		"build": "tsc --project tsconfig.json",
-		"start": "ls && node ./build/src/index.js",
+		"start": "ls && ls build && node ./build/src/index.js",
 		"dev": "nodemon ./src/index.ts",
 		"prettier": "prettier --check \"**/*\" --write ."
 	},
