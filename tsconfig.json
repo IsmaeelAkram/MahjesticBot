@@ -6,13 +6,12 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"outDir": "build",
+		"outDir": "dist",
 		"resolveJsonModule": true
 	},
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"display": "Recommended",
 	"type": "module",
-	"outDir": "dist",
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]
 }
