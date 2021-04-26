@@ -4,9 +4,8 @@
 	"description": "My personal Twitch bot and testing ground",
 	"main": "src/index.ts",
 	"scripts": {
-		"build": "tsc --project tsconfig.json",
-		"postinstall": "npm run build",
-		"start": "node dist/src/index.js",
+		"build": "tsc",
+		"start": "node dist/index.js",
 		"dev": "nodemon .",
 		"prettier": "prettier --check \"src/**/*\" --write ."
 	},
