@@ -9,7 +9,7 @@ export default function glitchKeepAlive(): void {
 	const app = express();
 
 	app.get('/', (req: express.Request, res: express.Response) => {
-		log.info(`GET / ${req.ip} 200`);
+		log.info(`GET / ${req.socket.remoteAddress} 200`);
 		res.sendStatus(200);
 	});
 
@@ -22,11 +22,10 @@ export default function glitchKeepAlive(): void {
 		axios
 			.get(url)
 			.then((res) => {
-				log.info('Sent request to self at ' + url);
+				log.info(`Sent request to '${url}'`);
 			})
 			.catch((err) => {
 				log.danger(`Error sending keepalive request to '${url}': ${err} `);
 			});
-	}, 5000);
-	// 280000
+	}, 280000);
 }
