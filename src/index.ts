@@ -1,12 +1,10 @@
 require('dotenv').config();
-import http from 'http';
-import express from 'express';
 
 import * as log from './log';
 import Bot from './common/bot';
 import AuthObject from './common/auth';
+import glitchKeepAlive from './glitchKeepAlive';
 
-const PORT = process.env.PORT || 80;
 let auth: AuthObject = {
 	username: process.env.username || '',
 	OAuthToken: process.env.oauth_token || '',
@@ -18,19 +16,4 @@ bot.start().catch((err) => {
 	log.danger('Error starting bot: ' + err);
 });
 
-const app = express();
-
-app.get('/', (req: express.Request, res: express.Response) => {
-	log.info(`GET / ${req.ip} 200`);
-	res.sendStatus(200);
-});
-
-app.listen(PORT, () => {
-	log.good('Express server started');
-});
-
-setInterval(() => {
-	let url = `http://${process.env.PROJECT_DOMAIN}.glitch.me/`;
-	http.get(url);
-	log.info('Sending request to self at ' + url);
-}, 280000);
+glitchKeepAlive();
