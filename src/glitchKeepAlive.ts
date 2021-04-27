@@ -2,6 +2,7 @@ import http from 'http';
 import express from 'express';
 
 import * as log from './log';
+import axios from 'axios';
 
 export default function glitchKeepAlive(): void {
 	const PORT = process.env.PORT || 80;
@@ -18,7 +19,12 @@ export default function glitchKeepAlive(): void {
 
 	setInterval(() => {
 		let url = `http://${process.env.PROJECT_DOMAIN}.glitch.me/`;
-		http.get(url);
-		log.info('Sending request to self at ' + url);
-	}, 280000);
+		axios
+			.get(url)
+			.then((res) => {
+				log.info('Sent request to self at ' + url);
+			})
+			.catch((err) => [log.danger('Error sending keepalive request: ' + err)]);
+	}, 5000);
+	// 280000
 }
