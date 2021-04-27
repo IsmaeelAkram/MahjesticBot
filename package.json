@@ -6,7 +6,8 @@
 		"build": "tsc",
 		"start": "npm run build && node dist/index.js",
 		"dev": "nodemon src/index.ts",
-		"prettier": "prettier --check \"src/**/*\" --write ."
+		"prettier": "prettier --check \"src/**/*\" --write .",
+		"sync-glitch": "GLITCH_PROJECT_ID='d66576d8-1949-4981-adf2-74224f8bb2e0' GLITCH_TOKEN='9a01af9d-8abd-4c97-a33c-bc5bc8412ab9' GH_REPO='ismaeelakram/mahjesticbot' sync-glitch"
 	},
 	"repository": {
 		"type": "git",
