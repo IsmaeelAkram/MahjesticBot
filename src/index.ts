@@ -6,6 +6,7 @@ import * as log from './log';
 import Bot from './common/bot';
 import AuthObject from './common/auth';
 
+const PORT = process.env.PORT || 80;
 let auth: AuthObject = {
 	username: process.env.username || '',
 	OAuthToken: process.env.oauth_token || '',
@@ -18,8 +19,16 @@ bot.start().catch((err) => {
 });
 
 const app = express();
-app.get('/', (request, response) => response.sendStatus(200));
-app.listen(process.env.PORT);
+
+app.get('/', (req: express.Request, res: express.Response) => {
+	res.sendStatus(200);
+});
+
+app.listen(PORT, () => {
+	log.good('Express server started');
+});
+
 setInterval(() => {
 	http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+	log.info('Sending request to self');
 }, 280000);
