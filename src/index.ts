@@ -21,6 +21,7 @@ bot.start().catch((err) => {
 const app = express();
 
 app.get('/', (req: express.Request, res: express.Response) => {
+	log.info(`GET / ${req.ip} 200`);
 	res.sendStatus(200);
 });
 
@@ -29,6 +30,7 @@ app.listen(PORT, () => {
 });
 
 setInterval(() => {
-	http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-	log.info('Sending request to self');
+	let url = `http://${process.env.PROJECT_DOMAIN}.glitch.me/`;
+	http.get(url);
+	log.info('Sending request to self at ' + url);
 }, 280000);
