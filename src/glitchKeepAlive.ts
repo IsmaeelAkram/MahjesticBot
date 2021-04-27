@@ -24,7 +24,9 @@ export default function glitchKeepAlive(): void {
 			.then((res) => {
 				log.info('Sent request to self at ' + url);
 			})
-			.catch((err) => [log.danger('Error sending keepalive request: ' + err)]);
+			.catch((err) => {
+				log.danger(`Error sending keepalive request to '${url}': ${err} `);
+			});
 	}, 5000);
 	// 280000
 }
