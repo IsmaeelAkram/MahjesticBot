@@ -2,7 +2,7 @@ import http from 'http';
 import express from 'express';
 
 import * as log from './log';
-import axios from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
 export default function glitchKeepAlive(): void {
 	const PORT = process.env.PORT || 80;
@@ -21,10 +21,10 @@ export default function glitchKeepAlive(): void {
 		let url = `http://${process.env.PROJECT_DOMAIN}.glitch.me/`;
 		axios
 			.get(url)
-			.then((res) => {
+			.then((res: AxiosResponse) => {
 				log.info(`Sent request to '${url}'`);
 			})
-			.catch((err) => {
+			.catch((err: AxiosError) => {
 				log.danger(`Error sending keepalive request to '${url}': ${err} `);
 			});
 	}, 280000);
