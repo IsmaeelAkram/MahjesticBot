@@ -20,6 +20,7 @@ bot.start().catch((err) => {
 });
 
 app.get('/', (req: Request, res: Response) => {
+	log.info(`GET / ${req.headers['x-forwarded-for']?.valueOf() || 'Unknown IP'} 200`);
 	res.sendStatus(200);
 });
 
