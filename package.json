@@ -4,7 +4,7 @@
 	"description": "My personal Twitch bot and testing ground",
 	"scripts": {
 		"build": "tsc",
-		"start": "npm run build && node dist/index.js",
+		"start": "node dist/index.js",
 		"dev": "nodemon src/index.ts",
 		"prettier": "prettier --check \"src/**/*\" --write .",
 		"sync-glitch": "GLITCH_PROJECT_ID='d66576d8-1949-4981-adf2-74224f8bb2e0' GLITCH_TOKEN='9a01af9d-8abd-4c97-a33c-bc5bc8412ab9' GH_REPO='ismaeelakram/mahjesticbot' sync-glitch"
@@ -27,13 +27,13 @@
 		"@types/node": "^14.14.41",
 		"@types/tmi.js": "^1.7.1",
 		"nodemon": "^2.0.7",
-		"prettier": "^2.2.1"
+		"prettier": "^2.2.1",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.2.4"
 	},
 	"dependencies": {
 		"chalk": "^4.1.1",
 		"dotenv": "^8.2.0",
-		"tmi.js": "^1.8.3",
-		"ts-node": "^9.1.1",
-		"typescript": "^4.2.4"
+		"tmi.js": "^1.8.3"
 	}
 }
